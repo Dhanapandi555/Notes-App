@@ -7,8 +7,12 @@ export default function RootNavigator() {
   const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="notes" headerMode="none">
-        <Stack.Screen name="notes" component={ListNotes} />
+      <Stack.Navigator initialRouteName="notes">
+        <Stack.Screen
+          name="notes"
+          component={ListNotes}
+          options={{headerTitle: 'Notes', headerTitleAlign: 'center'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,11 +1,13 @@
-import React, {createContext} from 'react';
+import React, {useReducer, createContext} from 'react';
 import {View, Text} from 'react-native';
-
+import {initialState, reducer as NotesReducer} from '../Reducer/NotesReducer';
 export const noteContext = createContext();
-export default function NotesContext() {
+
+export const NotesProvider = ({children}) => {
+  const [state, dispatch] = useReducer(NotesReducer, initialState);
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <noteContext.Provider value={{state, dispatch}}>
+      {children}
+    </noteContext.Provider>
   );
-}
+};
