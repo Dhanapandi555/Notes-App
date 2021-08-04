@@ -33,7 +33,7 @@ export default function ListNotes(props) {
           data={state}
           keyExtractor={(item) => `${item.id}`}
           renderItem={({item}) => (
-            <Pressable onPress={() => props.navigation.navigate('show')}>
+            <Pressable onPress={() => props.navigation.navigate('show',{id:item.id})}>
               <View
                 style={{
                   marginHorizontal: 10,
@@ -48,6 +48,9 @@ export default function ListNotes(props) {
                 }}>
                 <Text>{item.title}</Text>
                 <Text>{item.id}</Text>
+                <Icon
+                  name="edit"
+                                  />
                 <Icon
                   name="delete"
                   onPress={() => dispatch({type: 'REMOVE', payload: item.id})}

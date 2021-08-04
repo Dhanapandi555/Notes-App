@@ -16,7 +16,9 @@ export default function Create(props) {
       <Input onChangeText={(text) => setcontent(text)} />
       <Button
         title="Save"
-        onPress={() => dispatch({type: 'ADD', payload: {title, content}})}
+        onPress={() => {dispatch({type: 'ADD', payload: {title, content}})
+      props.navigation.goBack()}
+      }
       />
     </View>
   );
